@@ -15,3 +15,7 @@ Cargo.lock
 
 # Ignore all Rust binary executables
 *.rcgu.o
+
+# Added by cargo
+
+/target
