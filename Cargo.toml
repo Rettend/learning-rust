@@ -6,12 +6,13 @@ build = "build.rs"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
-[[bin]]
-name = "main"
-path = "build.rs"
-
 [dependencies]
 glob = "0.3.1"
 
 [build-dependencies]
 glob = "0.3.1"
+
+[[bin]]
+name = "2_hello_world"
+path = "src/bin/1. Getting Started/2_hello_world.rs"
+
