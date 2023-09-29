@@ -19,3 +19,11 @@ path = "src/bin/1. Getting Started/hello_world.rs"
 name = "2_main"
 path = "src/bin/2. Guessing Game/main.rs"
 
+[[bin]]
+name = "3_data_types"
+path = "src/bin/3. Common Programming Concepts/data_types.rs"
+
+[[bin]]
+name = "3_variables_and_mutability"
+path = "src/bin/3. Common Programming Concepts/variables_and_mutability.rs"
+
