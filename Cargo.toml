@@ -20,10 +20,22 @@ name = "2_main"
 path = "src/bin/2. Guessing Game/main.rs"
 
 [[bin]]
+name = "3_control_flow"
+path = "src/bin/3. Common Programming Concepts/control_flow.rs"
+
+[[bin]]
 name = "3_data_types"
 path = "src/bin/3. Common Programming Concepts/data_types.rs"
 
 [[bin]]
+name = "3_functions"
+path = "src/bin/3. Common Programming Concepts/functions.rs"
+
+[[bin]]
 name = "3_variables_and_mutability"
 path = "src/bin/3. Common Programming Concepts/variables_and_mutability.rs"
+
+[[bin]]
+name = "4_what_is_ownership"
+path = "src/bin/4. Ownership/what_is_ownership.rs"
 
