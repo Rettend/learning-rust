@@ -36,6 +36,10 @@ name = "3_variables_and_mutability"
 path = "src/bin/3. Common Programming Concepts/variables_and_mutability.rs"
 
 [[bin]]
+name = "4_reference_and_borrowing"
+path = "src/bin/4. Ownership/reference_and_borrowing.rs"
+
+[[bin]]
 name = "4_what_is_ownership"
 path = "src/bin/4. Ownership/what_is_ownership.rs"
 
