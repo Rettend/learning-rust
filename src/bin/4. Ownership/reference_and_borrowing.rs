@@ -87,9 +87,64 @@ fn main() {
 
     // The key idea is the references can temporarily remove these permissions
     let mut v: Vec<i32> = vec![1, 2, 3];
-    // - v: 🟧 Read, 🟦 Write, 🟥 Own
+    // - v: R🟧, W🟦, O🟥
 
-    let num: &i32 = &v[2];
-    // - v: 🟧 Read
-    // - num: 🟧x
+    let num: &i32 = &v[2]; // -v: R🟧 operation
+    // - v: R🟧
+    // - num: R🟧, O🟥 
+    // - *num: R🟧
+
+    // v.push(4); // - v: R🟧, W🟦
+    println!("The third element is {}", *num);
+    v.push(4); // - v: R🟧, W🟦
+    // println!("Again, the third element is {}", *num);
+    // - v: R🟧, W🟦, O🟥
+    // - num: -
+    // - *num: -
+
+    // - v: -
+    
+    // After a variable is no longer in use (after the last use of it), it is dropped.
+
+    let x = 0;
+    // - x: R🟧, O🟥
+
+    let mut x_ref = &x;
+    // - x: R🟧
+    // - x_ref: R🟧, W🟦, O🟥
+    // - *x_ref: R🟧
+
+    x_ref = &42; // we can mutate the reference
+    // *x_ref = 42; // but we can't mutate its value
+
+    // Mutable References
+
+    let mut v: Vec<i32> = vec![1, 2, 3];
+    // - v: R🟧, W🟦, O🟥
+
+    let num: &mut i32 = &mut v[2]; // - v: R🟧, W🟦
+    // - v: -
+    // - num: R🟧, O🟥
+    // - *num: R🟧, W🟦
+
+    *num += 1; // - *num: R🟧, W🟦
+    println!("The third element is {}", *num); // - *num: R🟧
+    // - v: R🟧, W🟦, O🟥
+    // - num: -
+    // - *num: -
+
+    println!("Vector is now {:?}", v); // - v: R🟧
+    // - v: -
+
+    let mut v: Vec<i32> = vec![1, 2, 3];
+
+    let num: &mut i32 = &mut v[2]; // - v: R🟧, W🟦
+    // - *num: R🟧, W🟦
+
+    let num2: &i32 = &num; // - v: R🟧
+    // - *num: R🟧
+    // - num2: R🟧
+
+    println!("{} {}", *num, *num2); // - v: R🟧
+
 }
