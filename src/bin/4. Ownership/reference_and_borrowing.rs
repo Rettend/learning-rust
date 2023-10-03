@@ -90,20 +90,20 @@ fn main() {
     // - v: R🟧, W🟦, O🟥
 
     let num: &i32 = &v[2]; // -v: R🟧 operation
-    // - v: R🟧
-    // - num: R🟧, O🟥 
-    // - *num: R🟧
+                           // - v: R🟧
+                           // - num: R🟧, O🟥
+                           // - *num: R🟧
 
     // v.push(4); // - v: R🟧, W🟦
     println!("The third element is {}", *num);
     v.push(4); // - v: R🟧, W🟦
-    // println!("Again, the third element is {}", *num);
-    // - v: R🟧, W🟦, O🟥
-    // - num: -
-    // - *num: -
+               // println!("Again, the third element is {}", *num);
+               // - v: R🟧, W🟦, O🟥
+               // - num: -
+               // - *num: -
 
     // - v: -
-    
+
     // After a variable is no longer in use (after the last use of it), it is dropped.
 
     let x = 0;
@@ -115,7 +115,7 @@ fn main() {
     // - *x_ref: R🟧
 
     x_ref = &42; // we can mutate the reference
-    // *x_ref = 42; // but we can't mutate its value
+                 // *x_ref = 42; // but we can't mutate its value
 
     // Mutable References
 
@@ -123,28 +123,99 @@ fn main() {
     // - v: R🟧, W🟦, O🟥
 
     let num: &mut i32 = &mut v[2]; // - v: R🟧, W🟦
-    // - v: -
-    // - num: R🟧, O🟥
-    // - *num: R🟧, W🟦
+                                   // - v: -
+                                   // - num: R🟧, O🟥
+                                   // - *num: R🟧, W🟦
 
     *num += 1; // - *num: R🟧, W🟦
     println!("The third element is {}", *num); // - *num: R🟧
-    // - v: R🟧, W🟦, O🟥
-    // - num: -
-    // - *num: -
+                                               // - v: R🟧, W🟦, O🟥
+                                               // - num: -
+                                               // - *num: -
 
     println!("Vector is now {:?}", v); // - v: R🟧
-    // - v: -
+                                       // - v: -
+
+    // NOTE: the :? format specifier is used to print a value using its Debug implementation
+    // this is useful for printing complex data structures like vectors
 
     let mut v: Vec<i32> = vec![1, 2, 3];
 
     let num: &mut i32 = &mut v[2]; // - v: R🟧, W🟦
-    // - *num: R🟧, W🟦
+                                   // - *num: R🟧, W🟦
 
     let num2: &i32 = &num; // - v: R🟧
-    // - *num: R🟧
-    // - num2: R🟧
+                           // - *num: R🟧
+                           // - num2: R🟧
 
     println!("{} {}", *num, *num2); // - v: R🟧
 
+    // Permissions Are Returned At The End of a Reference's Lifetime
+
+    let mut x = 1;
+
+    let y = &x;
+    // - x: R🟧
+
+    let z = *y; // lifetime of y ends here, W🟦 is returned to x
+                // - x: R🟧
+
+    x += z; // - x: R🟧, W🟦 - z: R🟧
+
+    // This is not the case if we introduce control flow
+
+    fn ascii_capitalize(v: &mut Vec<char>) {
+        let c = &v[0]; // *v loses W🟦 as c borrows it
+
+        if c.is_ascii_lowercase() {
+            let up = c.to_ascii_uppercase(); // *v regains W🟦 after this line (last use of c)
+            v[0] = up;
+        } else {
+            // c is not used here, so *v immediately has W🟦
+            println!("Not an ASCII lowercase letter: {:?}", v);
+        }
+    }
+
+    let mut v = vec!['a', 'b', 'c'];
+    ascii_capitalize(&mut v);
+
+    // Data Must Outlivev All Of Its References
+
+    let s = String::from("Hello");
+
+    let s_ref = &s;
+
+    drop(s);
+    // println!("{}", s_ref); // error: s_ref is a reference to a dropped value
+
+    // The Flow Permission: F🟩
+    // Flow is expected whenever an expression uses an input reference
+    // and returns an output reference to the same data.
+
+    fn first(strings: &Vec<String>) -> &String {
+        // F🟩 is expected and found here
+        let s_ref = &strings[0];
+        s_ref
+    }
+
+    // This is wrong because the compiler can't be sure that the returned
+    // reference points to strings or to default
+
+    // fn first_or(strings: &Vec<String>, default: &String) -> &String {
+    //     // F🟩 is expected and found here
+    //     if strings.len() > 0 {
+    //         first(strings)
+    //     } else {
+    //         default
+    //     }
+    // }
+
+    // Same here, because s_ref is missing the F🟩 permission
+    // as it is not an input reference and &s will be dropped at the end of the function
+
+    // fn return_a_string() -> &String {
+    //     let s = String::from("Hello");
+    //     let s_ref = &s;
+    //     s_ref
+    // }
 }
