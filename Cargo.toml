@@ -56,3 +56,7 @@ path = "src/bin/4. Ownership/4_slice_type.rs"
 name = "4_5_ownership_recap"
 path = "src/bin/4. Ownership/5_ownership_recap.rs"
 
+[[bin]]
+name = "5_1_defining_structs"
+path = "src/bin/5. Structs/1_defining_structs.rs"
+
