@@ -60,3 +60,11 @@ path = "src/bin/4. Ownership/5_ownership_recap.rs"
 name = "5_1_defining_structs"
 path = "src/bin/5. Structs/1_defining_structs.rs"
 
+[[bin]]
+name = "5_2_example"
+path = "src/bin/5. Structs/2_example.rs"
+
+[[bin]]
+name = "5_3_method_syntax"
+path = "src/bin/5. Structs/3_method_syntax.rs"
+
