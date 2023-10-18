@@ -143,4 +143,34 @@ fn main() {
     // rect_ref.set_width(2); // - rect: R🟧, W🟦
 
     // Moves with self
+
+    let rect = Rectangle {
+        width: 0,
+        height: 0,
+    };
+    // - rect: R🟧, O🟥
+
+    let other_rect = Rectangle {
+        width: 1,
+        height: 1,
+    };
+
+    let max_rect = rect.max(other_rect); // - rect: R🟧, O🟥, - other_rect: R🟧, O🟥
+                                         // - rect: ❌
+
+    // error!
+    // println!("{}", rect.area()); // - rect: R🟧
+
+    impl Rectangle {
+        fn set_to_max(&mut self, other: Self) {
+            // - *self: R🟧, W🟦
+
+            // error: cannot move out of `*self` which is behind a mutable reference
+            // *self = self.max(other); // - *self: R🟧, W🟦 - self: R🟧, O🟥
+        }
+    }
+
+    // Good Moves and Bad Moves
+
+    // the above example works if we derive Copy for Rectangle, because it does not own heap data
 }

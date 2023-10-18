@@ -68,3 +68,7 @@ path = "src/bin/5. Structs/2_example.rs"
 name = "5_3_method_syntax"
 path = "src/bin/5. Structs/3_method_syntax.rs"
 
+[[bin]]
+name = "6_1_defining_enums"
+path = "src/bin/6. Enums/1_defining_enums.rs"
+
