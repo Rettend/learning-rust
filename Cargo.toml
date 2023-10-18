@@ -72,3 +72,7 @@ path = "src/bin/5. Structs/3_method_syntax.rs"
 name = "6_1_defining_enums"
 path = "src/bin/6. Enums/1_defining_enums.rs"
 
+[[bin]]
+name = "6_2_match"
+path = "src/bin/6. Enums/2_match.rs"
+
