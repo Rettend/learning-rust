@@ -76,3 +76,7 @@ path = "src/bin/6. Enums/1_defining_enums.rs"
 name = "6_2_match"
 path = "src/bin/6. Enums/2_match.rs"
 
+[[bin]]
+name = "6_3_if_let"
+path = "src/bin/6. Enums/3_if_let.rs"
+
