@@ -80,3 +80,11 @@ path = "src/bin/6. Enums/2_match.rs"
 name = "6_3_if_let"
 path = "src/bin/6. Enums/3_if_let.rs"
 
+[[bin]]
+name = "8_1_vectors"
+path = "src/bin/8. Common Collections/1_vectors.rs"
+
+[[bin]]
+name = "8_2_strings"
+path = "src/bin/8. Common Collections/2_strings.rs"
+
