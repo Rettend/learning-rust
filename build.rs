@@ -3,8 +3,8 @@ use std::fs;
 use std::io::Write;
 
 fn main() {
-    // Get all the files in the src/bin folder and its subfolders
-    let files = glob("src/bin/**/*.rs").expect("Failed to read glob pattern");
+    // Get all the files in the src/bin folder and its direct subfolders
+    let files = glob("src/bin/*/*.rs").expect("Failed to read glob pattern");
 
     // Read the contents of the original Cargo.toml file
     let original = fs::read_to_string("Cargo.toml").expect("Failed to read Cargo.toml");
