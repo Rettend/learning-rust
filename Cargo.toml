@@ -88,3 +88,7 @@ path = "src/bin/8. Common Collections/1_vectors.rs"
 name = "8_2_strings"
 path = "src/bin/8. Common Collections/2_strings.rs"
 
+[[bin]]
+name = "8_3_hashmaps"
+path = "src/bin/8. Common Collections/3_hashmaps.rs"
+
