@@ -92,3 +92,11 @@ path = "src/bin/8. Common Collections/2_strings.rs"
 name = "8_3_hashmaps"
 path = "src/bin/8. Common Collections/3_hashmaps.rs"
 
+[[bin]]
+name = "9_1_panics"
+path = "src/bin/9. Error Handling/1_panics.rs"
+
+[[bin]]
+name = "9_2_errors_with_results"
+path = "src/bin/9. Error Handling/2_errors_with_results.rs"
+
