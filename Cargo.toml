@@ -17,6 +17,14 @@ name = "1_hello_world"
 path = "src/bin/1. Getting Started/hello_world.rs"
 
 [[bin]]
+name = "10_0_intro"
+path = "src/bin/10. Generics, Traits, Lifetimes/0_intro.rs"
+
+[[bin]]
+name = "10_1_generic_data_types"
+path = "src/bin/10. Generics, Traits, Lifetimes/1_generic_data_types.rs"
+
+[[bin]]
 name = "2_main"
 path = "src/bin/2. Guessing Game/main.rs"
 
@@ -99,4 +107,8 @@ path = "src/bin/9. Error Handling/1_panics.rs"
 [[bin]]
 name = "9_2_errors_with_results"
 path = "src/bin/9. Error Handling/2_errors_with_results.rs"
+
+[[bin]]
+name = "9_3_whether_to_panic"
+path = "src/bin/9. Error Handling/3_whether_to_panic.rs"
 
