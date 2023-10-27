@@ -55,4 +55,89 @@ fn main() {
 
     let integer = Point { x: 5, y: 10 };
     let float = Point { x: 1.0, y: 4.0 };
+
+    // error!
+    // let wont_work = Point { x: 5, y: 4.0 };
+
+    struct Point2<T, U> {
+        x: T,
+        y: U,
+    }
+
+    let integer_and_float = Point2 { x: 5, y: 4.0 };
+
+    // In Enum Definitions
+    enum Option<T> {
+        Some(T),
+        None,
+    }
+
+    enum Result<T, E> {
+        Ok(T),
+        Err(E),
+    }
+
+    // In Method Definitions
+    impl<T> Point<T> {
+        fn x(&self) -> &T {
+            &self.x
+        }
+    }
+
+    let p = Point { x: 5, y: 10 };
+
+    println!("p.x = {}", p.x());
+
+    impl Point<f32> {
+        fn distance_from_origin(&self) -> f32 {
+            (self.x.powi(2) + self.y.powi(2)).sqrt()
+        }
+    }
+
+    let p1 = Point { x: 5.0, y: 10.0 };
+    let p2 = Point { x: 5, y: 10 };
+
+    println!("p1.distance_from_origin = {}", p1.distance_from_origin());
+
+    // error!
+    // println!("p2.distance_from_origin = {}", p2.distance_from_origin());
+
+    // In Method Definitions with Multiple Generic Data Types
+    struct Point3<X1, Y1> {
+        x: X1,
+        y: Y1,
+    }
+
+    impl <X1, Y1> Point3<X1, Y1> {
+        fn mixup<X2, Y2>(self, other: Point3<X2, Y2>) -> Point3<X1, Y2> {
+            Point3 {
+                x: self.x,
+                y: other.y,
+            }
+        }
+    }
+
+    let p1 = Point3 { x: 5, y: 10.4 };
+    let p2 = Point3 { x: "Hello", y: 'c' };
+
+    let p3 = p1.mixup(p2);
+
+    println!("p3.x = {}, p3.y = {}", p3.x, p3.y);
+
+    // Performance of Code Using Generics
+    let ineger = Some(5);
+    let float = Some(5.0);
+
+    enum Option_i32 {
+        Some(i32),
+        None,
+    }
+
+    enum Option_f64 {
+        Some(f64),
+        None,
+    }
+
+    let integer = Option_i32::Some(5);
+    let float = Option_f64::Some(5.0);
 }
