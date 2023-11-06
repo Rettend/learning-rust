@@ -29,6 +29,10 @@ name = "10_2_traits"
 path = "src/bin/10. Generics, Traits, Lifetimes/2_traits.rs"
 
 [[bin]]
+name = "10_3_lifetimes"
+path = "src/bin/10. Generics, Traits, Lifetimes/3_lifetimes.rs"
+
+[[bin]]
 name = "2_main"
 path = "src/bin/2. Guessing Game/main.rs"
 
