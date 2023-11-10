@@ -33,21 +33,16 @@ fn main() {
                 let path = path.to_str().unwrap().replace("\\", "/");
 
                 // Get just the number from the folder name
-                let number = path
-                    .split("/")
-                    .nth(2)
-                    .unwrap()
-                    .split(".")
-                    .nth(0)
-                    .unwrap()
-                    .to_string();
+                let number = path.split("/").nth(2).unwrap().split(".").nth(0);
 
                 // Write the name and path to the bin section
                 cargo_toml
                     .write_all(
                         format!(
                             "[[bin]]\nname = \"{}_{}\"\npath = \"{}\"\n\n",
-                            number, name, path
+                            number.unwrap_or_default().to_lowercase(),
+                            name,
+                            path
                         )
                         .as_bytes(),
                     )
