@@ -120,3 +120,7 @@ path = "src/bin/9. Error Handling/2_errors_with_results.rs"
 name = "9_3_whether_to_panic"
 path = "src/bin/9. Error Handling/3_whether_to_panic.rs"
 
+[[bin]]
+name = "extras_snake_game"
+path = "src/bin/Extras/snake_game.rs"
+
