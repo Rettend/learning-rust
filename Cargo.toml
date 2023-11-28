@@ -33,6 +33,18 @@ name = "10_3_lifetimes"
 path = "src/bin/10. Generics, Traits, Lifetimes/3_lifetimes.rs"
 
 [[bin]]
+name = "11_1_tests"
+path = "src/bin/11. Testing/1_tests.rs"
+
+[[bin]]
+name = "11_2_controlling_tests"
+path = "src/bin/11. Testing/2_controlling_tests.rs"
+
+[[bin]]
+name = "11_3_test_organization"
+path = "src/bin/11. Testing/3_test_organization.rs"
+
+[[bin]]
 name = "2_main"
 path = "src/bin/2. Guessing Game/main.rs"
 

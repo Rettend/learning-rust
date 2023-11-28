@@ -8,9 +8,8 @@
   "json.schemas": [
     {
       "fileMatch": [
-        "package.json",
-        ".eemojirc",
         ".eemojirc.json",
+        ".eemojirc",
         ".eemojirc.yaml",
         ".eemojirc.yml",
         ".config/eemojirc",
