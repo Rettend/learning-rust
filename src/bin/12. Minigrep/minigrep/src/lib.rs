@@ -1,5 +1,8 @@
+use glob::glob;
+use std::env;
 use std::error::Error;
 use std::fs;
+use std::path::PathBuf;
 
 #[derive(Debug, PartialEq)]
 pub enum Flags {
@@ -94,7 +97,9 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
         return Ok(());
     }
 
-    let contents = fs::read_to_string(config.file_path)?;
+    let file_path = discover_file(config.file_path)?;
+
+    let contents = fs::read_to_string(file_path)?;
 
     println!("🔎 Searching for \"{}\"", config.query);
     println!("File: {}", config.file_path);
@@ -104,6 +109,24 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
     }
 
     Ok(())
+}
+
+fn discover_file(file_path: &str) -> Result<PathBuf, Box<dyn Error>> {
+    let file_path_pattern = format!("{}/**/{}", env::current_dir()?.display(), file_path);
+    let mut file_paths = Vec::new();
+
+    for entry in glob(&file_path_pattern)? {
+        match entry {
+            Ok(path) => file_paths.push(path),
+            Err(e) => return Err(Box::new(e)),
+        }
+    }
+
+    if file_paths.is_empty() {
+        return Err(format!("File not found: {}", file_path).into());
+    }
+
+    Ok(file_paths[0].clone())
 }
 
 pub fn search<'a>(query: &str, contents: &'a str, case_sensitive: bool) -> Vec<&'a str> {
