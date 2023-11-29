@@ -1,4 +1,4 @@
-use minigrep::Config;
+use minigrep::{Config, Flags};
 use std::env;
 use std::process;
 
@@ -10,8 +10,9 @@ fn main() {
         process::exit(1);
     });
 
-    println!("🔎 Searching for \"{}\"", config.query);
-    println!("File: {}", config.file_path);
+    if config.flags.iter().any(|flag| flag == &Flags::Debug) {
+        dbg!(&config);
+    }
 
     if let Err(e) = minigrep::run(config) {
         println!("Application error: {e}");
