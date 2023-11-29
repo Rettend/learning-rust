@@ -1,0 +1,8 @@
+The paradox of regress of authorities is a philosophical problem
+that arises when we try to justify the validity or legitimacy of
+a legal or moral authority. The problem is that any authority
+that claims to be valid or legitimate must either be based on
+another authority, or be self-justifying. If it is based on another
+authority, then we must ask what justifies that authority, and so on,
+leading to an infinite regress. If it is self-justifying, then we must
+ask how it can avoid being circular or arbitrary.

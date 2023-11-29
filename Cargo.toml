@@ -4,6 +4,9 @@ version = "0.1.0"
 edition = "2021"
 build = "build.rs"
 
+[workspace]
+members = ["src/bin/12. Minigrep/minigrep"]
+
 [dependencies]
 rand = "0.8.5"
 toml = "0.8.1"
