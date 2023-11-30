@@ -16,8 +16,96 @@ text_io = "0.1.12"
 glob = "0.3.1"
 
 [[bin]]
-name = "1_hello_world"
-path = "src/bin/1. Getting Started/hello_world.rs"
+name = "01_hello_world"
+path = "src/bin/01. Getting Started/hello_world.rs"
+
+[[bin]]
+name = "02_main"
+path = "src/bin/02. Guessing Game/main.rs"
+
+[[bin]]
+name = "03_1_variables_and_mutability"
+path = "src/bin/03. Common Programming Concepts/1_variables_and_mutability.rs"
+
+[[bin]]
+name = "03_2_data_types"
+path = "src/bin/03. Common Programming Concepts/2_data_types.rs"
+
+[[bin]]
+name = "03_3_functions"
+path = "src/bin/03. Common Programming Concepts/3_functions.rs"
+
+[[bin]]
+name = "03_5_control_flow"
+path = "src/bin/03. Common Programming Concepts/5_control_flow.rs"
+
+[[bin]]
+name = "04_1_what_is_ownership"
+path = "src/bin/04. Ownership/1_what_is_ownership.rs"
+
+[[bin]]
+name = "04_2_reference_and_borrowing"
+path = "src/bin/04. Ownership/2_reference_and_borrowing.rs"
+
+[[bin]]
+name = "04_3_fixing_ownership_errors"
+path = "src/bin/04. Ownership/3_fixing_ownership_errors.rs"
+
+[[bin]]
+name = "04_4_slice_type"
+path = "src/bin/04. Ownership/4_slice_type.rs"
+
+[[bin]]
+name = "04_5_ownership_recap"
+path = "src/bin/04. Ownership/5_ownership_recap.rs"
+
+[[bin]]
+name = "05_1_defining_structs"
+path = "src/bin/05. Structs/1_defining_structs.rs"
+
+[[bin]]
+name = "05_2_example"
+path = "src/bin/05. Structs/2_example.rs"
+
+[[bin]]
+name = "05_3_method_syntax"
+path = "src/bin/05. Structs/3_method_syntax.rs"
+
+[[bin]]
+name = "06_1_defining_enums"
+path = "src/bin/06. Enums/1_defining_enums.rs"
+
+[[bin]]
+name = "06_2_match"
+path = "src/bin/06. Enums/2_match.rs"
+
+[[bin]]
+name = "06_3_if_let"
+path = "src/bin/06. Enums/3_if_let.rs"
+
+[[bin]]
+name = "08_1_vectors"
+path = "src/bin/08. Common Collections/1_vectors.rs"
+
+[[bin]]
+name = "08_2_strings"
+path = "src/bin/08. Common Collections/2_strings.rs"
+
+[[bin]]
+name = "08_3_hashmaps"
+path = "src/bin/08. Common Collections/3_hashmaps.rs"
+
+[[bin]]
+name = "09_1_panics"
+path = "src/bin/09. Error Handling/1_panics.rs"
+
+[[bin]]
+name = "09_2_errors_with_results"
+path = "src/bin/09. Error Handling/2_errors_with_results.rs"
+
+[[bin]]
+name = "09_3_whether_to_panic"
+path = "src/bin/09. Error Handling/3_whether_to_panic.rs"
 
 [[bin]]
 name = "10_0_intro"
@@ -48,92 +136,8 @@ name = "11_3_test_organization"
 path = "src/bin/11. Testing/3_test_organization.rs"
 
 [[bin]]
-name = "2_main"
-path = "src/bin/2. Guessing Game/main.rs"
-
-[[bin]]
-name = "3_1_variables_and_mutability"
-path = "src/bin/3. Common Programming Concepts/1_variables_and_mutability.rs"
-
-[[bin]]
-name = "3_2_data_types"
-path = "src/bin/3. Common Programming Concepts/2_data_types.rs"
-
-[[bin]]
-name = "3_3_functions"
-path = "src/bin/3. Common Programming Concepts/3_functions.rs"
-
-[[bin]]
-name = "3_5_control_flow"
-path = "src/bin/3. Common Programming Concepts/5_control_flow.rs"
-
-[[bin]]
-name = "4_1_what_is_ownership"
-path = "src/bin/4. Ownership/1_what_is_ownership.rs"
-
-[[bin]]
-name = "4_2_reference_and_borrowing"
-path = "src/bin/4. Ownership/2_reference_and_borrowing.rs"
-
-[[bin]]
-name = "4_3_fixing_ownership_errors"
-path = "src/bin/4. Ownership/3_fixing_ownership_errors.rs"
-
-[[bin]]
-name = "4_4_slice_type"
-path = "src/bin/4. Ownership/4_slice_type.rs"
-
-[[bin]]
-name = "4_5_ownership_recap"
-path = "src/bin/4. Ownership/5_ownership_recap.rs"
-
-[[bin]]
-name = "5_1_defining_structs"
-path = "src/bin/5. Structs/1_defining_structs.rs"
-
-[[bin]]
-name = "5_2_example"
-path = "src/bin/5. Structs/2_example.rs"
-
-[[bin]]
-name = "5_3_method_syntax"
-path = "src/bin/5. Structs/3_method_syntax.rs"
-
-[[bin]]
-name = "6_1_defining_enums"
-path = "src/bin/6. Enums/1_defining_enums.rs"
-
-[[bin]]
-name = "6_2_match"
-path = "src/bin/6. Enums/2_match.rs"
-
-[[bin]]
-name = "6_3_if_let"
-path = "src/bin/6. Enums/3_if_let.rs"
-
-[[bin]]
-name = "8_1_vectors"
-path = "src/bin/8. Common Collections/1_vectors.rs"
-
-[[bin]]
-name = "8_2_strings"
-path = "src/bin/8. Common Collections/2_strings.rs"
-
-[[bin]]
-name = "8_3_hashmaps"
-path = "src/bin/8. Common Collections/3_hashmaps.rs"
-
-[[bin]]
-name = "9_1_panics"
-path = "src/bin/9. Error Handling/1_panics.rs"
-
-[[bin]]
-name = "9_2_errors_with_results"
-path = "src/bin/9. Error Handling/2_errors_with_results.rs"
-
-[[bin]]
-name = "9_3_whether_to_panic"
-path = "src/bin/9. Error Handling/3_whether_to_panic.rs"
+name = "13_1_closures"
+path = "src/bin/13. Iterators and Closures/1_closures.rs"
 
 [[bin]]
 name = "extras_snake_game"
