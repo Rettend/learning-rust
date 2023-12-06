@@ -100,5 +100,56 @@ fn main() {
         .join()
         .unwrap();
 
+    // Moving Captured Values Out of Closures and the Fn Traits
+    #[derive(Debug)]
+    struct Rectangle {
+        width: u32,
+        height: u32,
+    }
 
+    let mut list = [
+        Rectangle {
+            width: 10,
+            height: 1,
+        },
+        Rectangle {
+            width: 3,
+            height: 5,
+        },
+        Rectangle {
+            width: 7,
+            height: 12,
+        },
+    ];
+
+    list.sort_by_key(|r| r.width);
+    println!("{:?}", list);
+    println!("{:#?}", list);
+
+    let mut num_sort_operations = 0;
+    list.sort_by_key(|r| {
+        num_sort_operations += 1;
+        r.width
+    });
+    println!("{:#?}, sorted in {num_sort_operations} operations", list);
+
+    // Closures Must Name Captured Lifetimes
+    // fn make_a_cloner(s_ref: &str) -> impl Fn() -> String {
+    //     move || s_ref.to_owned() // error! borrowed data cannot be stored outside of its closure
+    // }
+
+    fn make_a_cloner(s_ref: &str) -> impl Fn() -> String + '_ {
+        move || s_ref.to_owned()
+    }
+
+    fn make_a_cloner2<'a>(s_ref: &'a str) -> impl Fn() -> String + 'a {
+        move || s_ref.to_owned()
+    }
+
+    let s = String::from("Hello");
+    let cloner = make_a_cloner(&s);
+
+    // drop(s); // error! cannot move out of `s` because it is borrowed
+
+    
 }
